@@ -17,7 +17,7 @@ export const shortestSubString = (list, str) => {
   }
 
   for (let i = 0; i < words.length; i ++) {
-    const cur = words[i];
+    const cur = words[i].split('.')[0];
 
     if (dictionary[cur] === true) { 
       const lengthOfCurString = lengthOfString(list, i, words);
@@ -38,7 +38,7 @@ const lengthOfString = (list, startIdx, sentence) => {
   const temp = [...list];
   
   for (let j = startIdx; j < sentence.length; j ++) {
-    const cur = sentence[j];
+    const cur = sentence[j].split('.')[0];
     const idx = list.indexOf(cur);
     
     if (idx > -1) {
@@ -54,4 +54,8 @@ const lengthOfString = (list, startIdx, sentence) => {
   return [Infinity];
 }
 
+
+console.log(shortestSubString(["cat", "dog", "chased"], "My cat was missing today. I hope she comes back. She was chased by the dog next door. I love my cat"));
+console.log(shortestSubString(["cat", "dog", "chased"], "My cat was missing today. I hope she comes back. She was chased by the dog. next door. I love my cat"));
 console.log(shortestSubString(["cat", "dog", "chased"], ""))
+console.log(shortestSubString(["cat", "dog", "chased"], "Mary has a little lamb, little lamb, little lamb"))
