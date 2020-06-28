@@ -27,8 +27,9 @@ export const shortestSubString = (list, str) => {
   //iterate the filtered indices
   for (let i = 0; i < indices.length - (list.length - 1); i ++) {
     const curIdx = i;
-
     const curSubString = subString(curIdx, indices, dictionary, words);
+
+    i = curSubString.nextIdx;
 
     if (curSubString.length < minLength.length) {
       minLength = curSubString;
@@ -66,7 +67,7 @@ const subString = (curIdx, indices, dictionary, words ) => {
             storage[curWord]--;
           } else {
             const length = words.slice(indices[k], endIdx + 1).join(" ").length;
-            return {startIdx: indices[k], endIdx, length};
+            return {startIdx: indices[k], endIdx, length, nextIdx: k};
           }
         }
       }
@@ -86,7 +87,7 @@ const getAllIndices = (dictionary, words) => {
       arrOfIdx.push(i);
     }
   }
-  
+
   return arrOfIdx;
 }
 
