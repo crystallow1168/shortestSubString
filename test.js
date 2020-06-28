@@ -16,11 +16,11 @@ describe('testing shortestSubString function', () => {
   });
 
   it('should return "NONE" when string is empty', () => {
-    assert.equal(shortestSubString(["cat", "dog", "chased"], ""), "NONE");
+    assert.equal(shortestSubString(["cat", "dog", "chased"], ""), null);
   });
 
   it('should return "NONE" when all or some of the words in the list are not found', () => {
-    assert.equal(shortestSubString(["cat", "dog", "chased"], "Mary has a little lamb, little lamb, little lamb"), "NONE");
+    assert.equal(shortestSubString(["cat", "dog", "chased"], "Mary has a little lamb, little lamb, little lamb"), null);
   });
 
 });
